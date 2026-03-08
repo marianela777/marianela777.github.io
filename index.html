@@ -52,10 +52,15 @@
                 </ul>
             </nav>
         </div>
+
+
+        <div id="petal-container"></div>
+
+
     </header>
 
     <main>
-        <audio autoplay loop>
+        <audio src="Assets/Adagio.mp3" controls loop>
             <source src="Assets/Adagio.mp3" type="audio/mpeg">
         </audio>
         <!-- Home / Hero -->
@@ -288,6 +293,24 @@
 
     <!-- Optional JS (smooth scroll + active links + mobile menu + year) -->
     <script src="script.js"></script>
+
+    <script>
+        function createPetal() {
+            const petal = document.createElement("div");
+            petal.classList.add("petal");
+
+            petal.style.left = Math.random() * window.innerWidth + "px";
+            petal.style.animationDuration = (Math.random() * 3 + 5) + "s";
+
+            document.getElementById("petal-container").appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 8000);
+        }
+
+        setInterval(createPetal, 300);
+    </script>
 
 
 </body>
